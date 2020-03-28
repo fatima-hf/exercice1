@@ -1,0 +1,58 @@
+package tp1;
+import java.util.Scanner;
+public class Pascal {
+	 
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		 int taille;
+
+	        // On demande la taille
+	        System.out.println("Taille du triangle de Pascal : ");
+	        taille = scanner.nextInt();
+
+	        // Ici on déclare le tableau, mais on ne construit que la première
+	        // dimension
+	        int [][] triangle = new int[taille][];
+
+	        // On construit et initialise la 1ère ligne
+	        triangle[0] = new int[1];
+	        triangle[0][0] = 1;
+
+	        for (int i = 1; i < taille; i++) {
+
+	            // Chaque ligne du triangle est un tableau à une dimension
+	            // dont la taille est celle de la ligne précédente + 1:
+	            // on construit ces lignes (new) au fur et à mesure que l'on
+	            // progresse dans le tableau
+	            triangle[i] = new int [triangle [i - 1].length + 1];
+
+	            // Remplissage du tableau:
+	            // les deux éléments aux deux extremités des lignes valent 1.
+	            // Les autres sont liés par la relation:
+	            // triangle[row][j]= triangle[row-1][j-1] + 
+	                        //                   triangle[row-1][j]
+
+	            for (int j = 0; j <= i; j++) {
+	                if ((j== 0) || (j== i)) {
+	                    triangle[i][j] = 1;
+	                } else {
+	                    triangle[i][j] = triangle[i- 1][j - 1]
+	                        + triangle[i- 1][j];
+	                }
+
+	            }
+	        }
+
+	        // Affichage du tableau
+	        for (int i = 0; i < taille; i++) {
+	            for (int j = 0; j <= i; j++) {
+	                System.out.print(triangle[i][j] + " ");
+	            }
+	            System.out.println();
+	        }
+	    }
+
+	}
+
+
