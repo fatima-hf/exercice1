@@ -7,29 +7,29 @@ public class Pascal {
 		Scanner scanner = new Scanner(System.in);
 		 int taille;
 
-	        // On demande la taille
+	        // demander la taille du triangle
 	        System.out.println("Taille du triangle de Pascal : ");
 	        taille = scanner.nextInt();
 
-	        // Ici on déclare le tableau, mais on ne construit que la première
+	        // Ici on dÃ©clare le tableau, mais on ne construit que la premiÃ¨re
 	        // dimension
 	        int [][] triangle = new int[taille][];
 
-	        // On construit et initialise la 1ère ligne
+	        // On construit et initialise la 1Ã¨re ligne
 	        triangle[0] = new int[1];
 	        triangle[0][0] = 1;
 
 	        for (int i = 1; i < taille; i++) {
 
-	            // Chaque ligne du triangle est un tableau à une dimension
-	            // dont la taille est celle de la ligne précédente + 1:
-	            // on construit ces lignes (new) au fur et à mesure que l'on
+	            // Chaque ligne du triangle est un tableau Ã  une dimension
+	            // dont la taille est celle de la ligne prÃ©cÃ©dente + 1:
+	            // on construit ces lignes (new) au fur et Ã  mesure que l'on
 	            // progresse dans le tableau
 	            triangle[i] = new int [triangle [i - 1].length + 1];
 
 	            // Remplissage du tableau:
-	            // les deux éléments aux deux extremités des lignes valent 1.
-	            // Les autres sont liés par la relation:
+	            // les deux Ã©lÃ©ments aux deux extremitÃ©s des lignes valent 1.
+	            // Les autres sont liÃ©s par la relation:
 	            // triangle[row][j]= triangle[row-1][j-1] + 
 	                        //                   triangle[row-1][j]
 
